@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маркин Никита | Подкаст «Психологическая пауза»</title>
+  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Шапка */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      z-index: 100;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #475569;
+      margin-bottom: 2.5rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
+      /* Если фото из ВК не загрузится, можно указать локальный файл */
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    /* Services */
+    .services {
+      background-color: #f8fafc;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card i {
+      font-size: 3rem;
+      color: #2563eb;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    /* Contact */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .social-links {
+      margin-bottom: 1rem;
+    }
+
+    .social-links a {
+      color: #94a3b8;
+      margin: 0 0.8rem;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: white;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-img {
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+  <div class="header-container">
+    <div class="logo">Маркин Никита</div>
+    <nav class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#services">Подкаст</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Главный экран (Hero) -->
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Привет! Я Никита — веду подкаст о психологии</h1>
+    <p>Студент-психолог, создатель «Психологической паузы». Здесь мы говорим о важном простым языком.</p>
+    <a href="#contact" class="btn">Связаться</a>
+  </div>
+</section>
+
+<!-- Обо мне -->
+<section id="about">
+  <div class="container">
+    <h2>Обо мне</h2>
+    <div class="about-grid">
+      <div class="about-img">
+        <!-- Если фото из ВК не загружается, замените ссылку на свою или используйте локальный файл -->
+        <img 
+          src="https://sun9-44.userapi.com/impg/c858432/v858432109/24c6a5/_t9KjHx3G9k.jpg?size=1080x1080&quality=95&sign=2b8f2e3a1c5f4a6d8b7e9c0d1e2f3a4b&type=album" 
+          alt="Маркин Никита"
+          onerror="this.src='https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop';"
+        >
+        <!-- Резервное изображение на случай недоступности ВК -->
+      </div>
+      <div class="about-text">
+        <p>Меня зовут Никита, я студент-психолог. Пока без регалий и изученных методик, но с огромным интересом к тому, как устроен внутренний мир человека.</p>
+        <p>Я веду подкаст <strong>«Психологическая пауза»</strong> — это моя возможность делиться мыслями, задавать вопросы и приглашать интересных гостей. Мы обсуждаем ментальное здоровье, отношения, саморазвитие без сложных терминов и оценок.</p>
+        <p>Этот сайт — моя визитка. Если вам близка тема психологии, хотите предложить сотрудничество или просто пообщаться — буду рад диалогу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Подкаст / Услуги -->
+<section id="services" class="services">
+  <div class="container">
+    <h2>Чем я занимаюсь</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-podcast"></i>
+        <h3>Подкаст</h3>
+        <p>«Психологическая пауза» — выпуски раз в две недели. Слушайте на всех популярных платформах.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-pen-fancy"></i>
+        <h3>Блог</h3>
+        <p>Пишу заметки о психологии повседневности. Скоро здесь появятся статьи и рекомендации.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-users"></i>
+        <h3>Сотрудничество</h3>
+        <p>Открыт к участию в совместных проектах, интервью и обмену опытом.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Контакты -->
+<section id="contact">
+  <div class="container">
+    <h2>Свяжитесь со мной</h2>
+    <div class="contact-form">
+      <form action="#" method="post">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="Сообщение" required></textarea>
+        </div>
+        <button type="submit" class="btn">Отправить</button>
+      </form>
+      <p style="margin-top: 2rem; text-align: center; color: #64748b;">
+        Или напишите мне в Telegram: <a href="#" style="color: #2563eb;">@nikita_markin</a><br>
+        Подкаст: <a href="#" style="color: #2563eb;">«Психологическая пауза»</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Футер -->
+<footer>
+  <div class="container">
+    <div class="social-links">
+      <a href="#" aria-label="Подкаст"><i class="fas fa-podcast"></i></a>
+      <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+      <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+    </div>
+    <p>&copy; 2025 Маркин Никита. «Психологическая пауза»</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Сайт-визитка — открыт к диалогу и новым идеям.</p>
+  </div>
+</footer>
+
+</body>
+</html>
